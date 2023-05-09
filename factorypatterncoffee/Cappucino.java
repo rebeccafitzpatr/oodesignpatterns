@@ -1,3 +1,5 @@
+package factorypatterncoffee;
+
 public class Cappucino implements Coffee {
 
   @Override
