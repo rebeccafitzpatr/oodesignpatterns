@@ -1,25 +1,24 @@
 package factorypatterncreditcards;
 
-import factorypatterncreditcards.Main.Income;
-
 public class CreditCardFactory {
-  public static CreditCard createCard(Income income) {
+  public static CreditCard createCard(int income) {
 
-    switch(income) {
-      case PLASTIC:
+    
+    if (income >= 0 && income <= 9999)  {
       return new PlasticCard();
       
+    }else if (income <= 99999 && income >= 10000) {
+      return new SilverCard();
 
-      case SILVER:
-        return new SilverCard();
+    } else if ( income >= 100000 && income <= 199999) {
+      return new GoldCard();
 
-      case GOLD:
-        return new GoldCard();
-
-      case PLATINUM:
-        return new PlatinumCard();
-
+    } else if (income >= 200000) {
+      return new PlatinumCard();
+    } else {
+      System.err.println("that is an invalid number");
+      System.exit(0);
+      return null;
     }
-    return null;
   }
 }
