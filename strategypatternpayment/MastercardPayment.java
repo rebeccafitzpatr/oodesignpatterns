@@ -7,7 +7,7 @@ public class MastercardPayment implements Payment{
   @Override
   public void pay(int amount) {
     System.out.println("Completing Mastercard payment: Charge $" + amount);
-    System.out.println("Fee: " + fee * amount);
+    System.out.println("Fee: $" + fee * amount);
 
   }
   

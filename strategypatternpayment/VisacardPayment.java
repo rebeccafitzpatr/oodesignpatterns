@@ -6,7 +6,7 @@ public class VisacardPayment implements Payment{
   @Override
   public void pay(int amount) {
     System.out.println("Completing Visa payment: Charge $" + amount);
-    System.out.println("Fee: " + fee * amount);
+    System.out.println("Fee: $" + fee * amount);
 
   }
 
