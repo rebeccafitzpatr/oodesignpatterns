@@ -4,7 +4,10 @@ public class CreditCardFactory {
   public static CreditCard createCard(int income) {
 
     
-    if (income >= 0 && income <= 9999)  {
+    if (income == 0){
+      return new FreeCard();
+
+    }else if (income > 0 && income <= 9999)  {
       return new PlasticCard();
       
     }else if (income <= 99999 && income >= 10000) {
