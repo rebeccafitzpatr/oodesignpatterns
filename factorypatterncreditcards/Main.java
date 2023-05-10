@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
-  public enum Income {SILVER, GOLD, PLATINUM}
+  public enum Income {PLASTIC, SILVER, GOLD, PLATINUM}
 
   public static void main(String args[]) {
 
@@ -25,7 +25,11 @@ public class Main {
 
   private static Income convertIncome(int income) {
 
-    if (income <= 99999 && income >= 0) {
+    
+    if (income >= 0 && income <= 9999)  {
+      return Income.PLASTIC;
+      
+    }else if (income <= 99999 && income >= 10000) {
       return Income.SILVER;
 
     } else if ( income >= 100000 && income <= 199999) {
