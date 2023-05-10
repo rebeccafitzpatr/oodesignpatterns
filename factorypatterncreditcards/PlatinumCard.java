@@ -13,10 +13,5 @@ public class PlatinumCard implements CreditCard{
   @Override
   public String getCardType() {
     return cardType;
-  }
-
-  //public void printDetails() {
-    //System.out.println("Your card type is PLATINUM and");
-  //}
-  
+  }  
 }
