@@ -1,5 +1,5 @@
 package factorypatterncreditcards;
 
 public interface CreditCard {
-  public int setCreditLimit();
+  public int getCreditLimit();
 }
