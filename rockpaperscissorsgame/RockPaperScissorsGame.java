@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class RockPaperScissorsGame {
 
 	public static Scanner scanner = new Scanner(System.in);
+  private Action recordedAction = Action.PAPER;
 
 	private void printReady() {
 		System.out.print("Ready?");
@@ -52,8 +53,12 @@ public class RockPaperScissorsGame {
 		String res;
 		do {
 			Action choiceHuman = player.play();
+      
+
+      cpu.setStrategy(this);
 			Action choiceCPU = cpu.play();
-			printReady();
+			setHumanAction(choiceHuman);
+      printReady();
 			getResult(choiceHuman, choiceCPU);
 			System.out.println("Do you want to play again?");
 			res = scanner.next();
@@ -63,6 +68,16 @@ public class RockPaperScissorsGame {
 			}
 		} while (res.equals("yes"));
 		scanner.close();
+    
 	}
+
+  public void setHumanAction(Action choiceHuman) {
+    recordedAction = choiceHuman;
+  }
+  public Action getHumanAction() {
+    return recordedAction;
+  }
+
+  
 
 }
