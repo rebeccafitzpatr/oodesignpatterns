@@ -3,7 +3,9 @@ package rockpaperscissorsgame;
 public class CPU {
 
 	public Action play() {
-		return Action.ROCK;
+		
+    Action action = new RandomStrategy().decideAction();
+    return action;
 	}
 
 }
