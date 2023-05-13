@@ -18,7 +18,7 @@ public class CycleStrategy implements Strategy {
       return Action.PAPER;
 
     }else if (counter == 3) {
-      counter = 1;
+      counter = 0;
       return Action.SCISSORS;
     }
     

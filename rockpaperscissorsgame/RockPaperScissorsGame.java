@@ -6,6 +6,7 @@ public class RockPaperScissorsGame {
 
 	public static Scanner scanner = new Scanner(System.in);
   private Action recordedAction = Action.PAPER;
+  private int cpuLossCounter = 0;
 
 	private void printReady() {
 		System.out.print("Ready?");
@@ -49,17 +50,28 @@ public class RockPaperScissorsGame {
 	public void play() {
 
 		CPU cpu = new CPU();
+    cpu.setStrategy(new CycleStrategy());
 		Human player = new Human();
 		String res;
 		do {
 			Action choiceHuman = player.play();
       
 
-      cpu.setStrategy(this);
+      if (this.cpuLossCounter ==3){
+        this.cpuLossCounter = 0;
+      }
+      
+
+      cpu.changeStrategy(this);
 			Action choiceCPU = cpu.play();
 			setHumanAction(choiceHuman);
       printReady();
-			getResult(choiceHuman, choiceCPU);
+			int result = getResult(choiceHuman, choiceCPU);
+
+      if (result == 1) {
+        this.cpuLossCounter ++;
+      }
+
 			System.out.println("Do you want to play again?");
 			res = scanner.next();
 			while (!res.equals("yes") && !res.equals("no")) {
@@ -76,6 +88,10 @@ public class RockPaperScissorsGame {
   }
   public Action getHumanAction() {
     return recordedAction;
+  }
+
+  public int getLossStreak() {
+    return cpuLossCounter;
   }
 
   
