@@ -8,7 +8,8 @@ public class Main {
 		    int[] numbers = new int[] { 5, 34, 2, -1, 3, 444, 89 };
         System.out.println("array in input: " + Arrays.toString(numbers));
         //TODO
-        int max = 0; //FIXME
+        Max maximum = new MaxAdapter();
+        int max = maximum.getMax(numbers); //FIXME
         System.out.println("max: " + max);
     }
 }

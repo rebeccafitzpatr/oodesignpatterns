@@ -1,11 +1,23 @@
 package adapterpatterngetmax;
 
-import java.util.List;
 
-public class ListMax {
+
+import java.util.ArrayList;
+
+
+
+public class ListMax{
+    private int maximum;
   
-    public int getMaxFromList(List<Integer> numbers) {
-        //TODO implement by yourself
-        return 0; //fix me
+    public int getMaxFromList(ArrayList<Integer> numbers) {
+        this.maximum = numbers.get(0);
+        for (int number : numbers) {
+          if (number > this.maximum) {
+            this.maximum = number;
+          }
+        } 
+        return this.maximum;
     }
+
+    
 }
